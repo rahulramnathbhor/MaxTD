@@ -9,27 +9,70 @@ namespace MaxTD
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void maxelement(int no_of_rows, int[][] arr)
         {
-            int[,] arr = new int[3, 4]
-          {
-               { 1,2,3,4},
-               {5,6,7,8 },
-               {9,10,11,12 }
-          };
-            for (int i = 0; i < arr.GetLength(0); i++)
+            int i = 0;
+            int max = 0;
+
+            int[] result = new int[no_of_rows];
+
+            while (i < no_of_rows)
+
             {
-                for (int j = 0; j < arr.GetLength(1); j++)
+
+                for (int j = 0;
+
+                         j < arr[i].Length; j++)
+
                 {
-                    Console.Write($"arr[{i},{j}]= {arr[i, j]}  ");
+
+                    if (arr[i][j] > max)
+
+                    {
+
+                        max = arr[i][j];
+
+                    }
+
                 }
-                Console.WriteLine();
+
+                result[i] = max;
+
+                max = 0;
+
+                i++;
+
+
+            }
+            printArray(result);
+        }
+            
+        private static void printArray(int[] result)
+        {
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.WriteLine(result[i]);
             }
 
         }
+        public static void Main(string[] args)
+        {
+
+            int[][] arr = new int[][]
+            {            
+                new int[] {3, 4, 1, 8},
+
+                 new int[] {1, 4, 9, 11},
+
+                 new int[] {76, 34, 21, 1},
+            };
+                 maxelement(3, arr);
+        }
     }
-   
 }
+   
+
      
 
            
